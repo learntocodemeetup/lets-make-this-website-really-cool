@@ -1,0 +1,186 @@
+/* 
+  Any questions I'd be happy to help, 
+  you can email me at daniel.albert.jeffery@gmail.com 
+  or just ask via Slack
+*/  
+
+/* default text is 16px */
+
+body {
+  font-family: 'Raleway', sans-serif; /* Apply this font to all the things, let it cascade like a wonderful waterfall */
+  margin: 0; /* Why you gotta have default margin! You go now! */
+}
+
+img {
+  max-width: 100%; /* Be your normal dimensions, but never be wider than your container. */
+}
+
+h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+a {
+  color: inherit; /* Whatever your parent elements color is, I think you would look good if you were also that - and not blue */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+* {
+  box-sizing: border-box; /* I hate math, give me simpler math on all the things! */
+}
+
+.main-header {
+  background-color: #333;
+  color: white;
+
+  /* 
+     Rems are relatibe to the root element, i.e the html element. 
+    By default that will be 16px, but can be changed! So whatever the 
+    font size is equal to - this will be equal to two of that! 
+  */
+
+  padding: 2rem; /* Will be 32px or 16 times 2 */
+  
+  /* 
+    Weird hipster flexbox stuff - totally cool 
+    we should go over this in more detail some time 
+  */
+
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.main-nav {
+
+}
+
+
+
+.main-nav a {
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.35rem;
+}
+
+.main-nav a:hover {
+  text-decoration: none;
+  background-color: #AAA;
+}
+
+.main-title {
+
+  /* 
+    removing the default bottom and top margins that come along for the ride on a 
+    h1 
+  */
+  margin: 0; 
+  font-size: 2.5rem;
+  color: #D46B6C;
+}
+
+.container {
+
+  /*
+    Be 80% of your container, if the browser width narrows, you can adjust yourself to stay at 80%.
+    Left and right margin values of 'auto' center the element.
+  */
+  max-width: 80%;
+  margin: 0 auto; 
+}
+
+.main-content, .sidebar {
+
+  /* 
+    Floats are a bit riduculous but important to know as they will be in use for a while. 
+    However let's flex this up a bit at some point eh?
+  */
+    
+  float: left; 
+  padding: 1rem; /* 16px */
+}
+
+
+/*
+  If you are floating things and you want your layouts 
+  are predictable, make sure that the widths add up to 100% :)
+*/
+
+.main-content {
+  width: 60%;
+}
+
+.sidebar {
+  width: 40%;
+}
+
+
+
+.footer {
+  background-color: #333;
+
+  /*
+    One of the side effects of floats is that they are taken out of the 
+    'normal document flow' you can think of it as them 'floating' above the 
+    page, so the content below acts as though it isn't there. 
+
+    Setting clear: both; will tell it to make sure to clear any floated elements
+    whether they are floated left or right. 
+
+    In short it fixes your broken layout! There is another way to achieve the same
+    thing called a "clearfix".
+  */
+
+  clear: both;
+
+
+  color: honeydew;
+  padding: 1rem;
+  text-align: center;
+}
+
+/*
+  Media queries are very good and are one of the technologies that allow
+  'responsive web design', or designing sites that adapt to different screen widths.
+  Here we are saying 'apply these styles if the width of the browser is 600px or less.'
+*/  
+
+@media (max-width: 600px) {
+  
+  body {
+    background-color: teal;
+  }
+
+  .main-content, .sidebar {
+    float: none;
+    width: 100%;
+  }
+
+  .main-header {
+    flex-direction: column;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-title {
+    text-align: center;
+  }
+
+  .main-nav a {
+    text-align: center;
+  }
+
+}
+
+
+
+
